@@ -8,9 +8,10 @@ from urllib.parse import urlencode
 # 常量定义
 IOT_APP_NAME = "apptest"  # 替换为实际的应用名
 APP_SECRET = "predf556ef607b8b583baa5e8b6afc5a205end"  # 替换为实际的密钥
+OPEN_APIURL = "https://openapi-hk.cn/openapi"  # 替换为实际的密钥
 
 
-def query_robot_status(product_id, iot_robot_api_v2):
+def query_robot_status(product_id):
     """
     查询机器人状态的完整方法，整合了所有相关功能
 
@@ -37,7 +38,7 @@ def query_robot_status(product_id, iot_robot_api_v2):
     param_map["sign"] = sign_value
 
     # 第三步：构建URL并发送请求
-    url = f"{iot_robot_api_v2}/openapi/v1/robot/status"
+    url = f"{OPEN_APIURL}/openapi/v1/robot/status"
     full_url = f"{url}?{urlencode(param_map)}"
 
     # 发送GET请求
@@ -121,7 +122,7 @@ def sort_nested_parameters(params):
             value.extend(string_values)
         # TODO: 其他复杂类型（如 dict 嵌套 dict）可按需递归处理
 def postReq(param_map):
-    url = f"{iot_robot_api_v2}/openapi/v1/robot/status"
+    url = f"{OPEN_APIURL}/openapi/v1/robot/status"
     data = json.dumps(param_map).encode('utf-8')
     headers = {'Content-Type': 'application/json'}
 
@@ -160,5 +161,5 @@ if __name__ == "__main__":
     iot_robot_api_v2 = "https://openapi-hk-new.com.cn"
     product_id = "HOTYC04SZ202104143987599"
 
-    result = query_robot_status(product_id, iot_robot_api_v2)
+    result = query_robot_status(product_id)
     print(json.dumps(result, ensure_ascii=False, indent=2))
