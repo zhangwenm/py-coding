@@ -120,7 +120,6 @@ def sort_nested_parameters(params):
             value.extend(sorted_item_params_list)
             # 添加原有顺序的非 dict
             value.extend(string_values)
-        # TODO: 其他复杂类型（如 dict 嵌套 dict）可按需递归处理
 def postReq(param_map):
     url = f"{OPEN_APIURL}/openapi/v1/robot/status"
     data = json.dumps(param_map).encode('utf-8')
