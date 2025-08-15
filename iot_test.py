@@ -144,7 +144,7 @@ def encode_multipart_formdata(fields):
     content_type = f'multipart/form-data; boundary={boundary}'
     return body, content_type
 def postReqForm(param_map):
-    url = "https://openapi-hk-new.cn/openapi/v1/robot/status"
+    url = "https://openapi-hk.cn/openapi/v1/robot/status"
     body, content_type = encode_multipart_formdata(param_map)
     headers = {'Content-Type': content_type}
 
