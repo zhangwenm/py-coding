@@ -158,7 +158,6 @@ def postReqForm(param_map):
 # 使用示例
 if __name__ == "__main__":
     # 替换为实际的API基础URL和产品ID
-    iot_robot_api_v2 = "https://openapi-hk-new.com.cn"
     product_id = "HOTYC04SZ202104143987599"
 
     result = query_robot_status(product_id)
